@@ -18,10 +18,9 @@ public class ExampleSteps {
         examplePage.clickOnINDEXOFTab();
     }
 
-    @And("^the user click the (.*) button")
+    @And("^the user click the (.*) button$")
     public void theUserClickTheButton(String button) {
-        examplePage.clickOnDE0AHACKINGButton();
-        examplePage.verifyDE0AHACKINGTitle();
+        examplePage.clickButtonSwitch(button);
     }
 
     @And("the user click all the rigth arrows")
@@ -32,5 +31,16 @@ public class ExampleSteps {
     @Then("the user verifies all the text in the cards")
     public void theUserVerifiesAllTheTextInTheCards() {
         examplePage.verifyAllCardsInformation();
+    }
+
+    @And("^the user complete te user information. Usuario: (.*) Contraseña: (.*)$")
+    public void theUserCompleteTeUserInformationUsuarioUserContraseñaPass(String user, String pass) {
+        examplePage.completeLoginData(user, pass);
+
+    }
+
+    @Then("the user verifies that they are logged in.")
+    public void theUserVerifiesThatTheyAreLoggedIn() {
+        examplePage.verifyLogin();
     }
 }
