@@ -1,4 +1,4 @@
-package tests;
+package com.autoc0de.utility;
 
 import java.io.IOException;
 import java.io.InputStream;
