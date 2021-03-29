@@ -34,10 +34,11 @@ jobs:
         uses: browser-actions/setup-chrome@latest
         
       - name: Step 4 - Check the Chrome Version installed
-      - run: chrome --version
+        run: chrome --version
 
       # Runs a set of commands using the runners shell
       - name: Step 5 - Build Maven
         run: mvn install -DskipTests
+        
       - name: Run Test
         run: mvn test
