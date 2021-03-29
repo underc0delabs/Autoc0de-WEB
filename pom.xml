@@ -58,6 +58,13 @@
         <!-- CHANGE THIS URL FOR YOUR SITE URL -->
         <web.url>https://underc0de.org/</web.url>
     </properties>
+         
+    <repositories>
+             <repository>
+                 <id>jitpack.io</id>
+                 <url>https://jitpack.io</url>
+             </repository>
+    </repositories>
 
     <dependencies>
         <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
@@ -103,6 +110,13 @@
             <artifactId>webdrivermanager</artifactId>
             <version>4.3.1</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/com.github.ralfstuckert.pdfbox-layout/pdfbox2-layout -->
+         <dependency>
+             <groupId>com.github.ralfstuckert.pdfbox-layout</groupId>
+             <artifactId>pdfbox2-layout</artifactId>
+             <version>1.0.0</version>
+         </dependency>
+
 
     </dependencies>
 
