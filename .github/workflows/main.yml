@@ -31,7 +31,7 @@ jobs:
 
       # Runs a set of commands using the runners shell
       - name: Step 3 - Build Maven
-        run: mvn clean install test
+        run: mvn test
         
       - name: Step 4 - What is in the target folder?
         run: |
