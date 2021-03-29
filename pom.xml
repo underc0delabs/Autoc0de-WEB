@@ -112,11 +112,11 @@
             <version>4.3.1</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/com.github.ralfstuckert.pdfbox-layout/pdfbox2-layout -->
-         <dependency>
-             <groupId>com.github.ralfstuckert.pdfbox-layout</groupId>
-             <artifactId>pdfbox2-layout</artifactId>
-             <version>1.0.0</version>
-         </dependency>
+        <dependency>
+            <groupId>com.github.ralfstuckert.pdfbox-layout</groupId>
+            <artifactId>pdfbox1-layout</artifactId>
+            <version>0.9.0</version>
+        </dependency>
 
 
     </dependencies>
