@@ -59,7 +59,8 @@
         <!-- CHANGE THIS URL FOR YOUR SITE URL -->
         <web.url>https://underc0de.org/</web.url>
     </properties>
-         
+
+    <!-- REPOSITORY NECESARY TO DOWNLOAD AN ESPESIFIC DEPENDENCY OF JITPACK -->
     <repositories>
              <repository>
                  <id>jitpack.io</id>
