@@ -28,6 +28,12 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 11.0.7
+          
+     # Runs a single command using the runners shell
+      - name: Step 3 - Install Google Chome
+        run: |
+         chmod +x ./scripts/InstallChrome.sh
+          ./scripts/InstallChrome.sh
 
       # Runs a set of commands using the runners shell
       - name: Step 3 - Build Maven
