@@ -34,7 +34,7 @@ jobs:
         run: mvn clean install test
         
       - name: Step 4 - What is in the target folder?
-      - run: |
+        run: |
           cd target
           ls -a
  
