@@ -31,9 +31,8 @@ jobs:
           
      # Runs a single command using the runners shell
       - name: Step 3 - Install Google Chome
-        run: |
-         chmod +x ./scripts/InstallChrome.sh
-          ./scripts/InstallChrome.sh
+        uses: browser-actions/setup-chrome@latest
+      - run: chrome --version
 
       # Runs a set of commands using the runners shell
       - name: Step 3 - Build Maven
