@@ -1,12 +1,12 @@
-package tests;
+package com.autoc0de.core.utility;
 
 import com.autoc0de.core.hooks.Hook;
-import com.autoc0de.core.utility.Utils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
 import java.awt.*;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.ClipboardOwner;
@@ -243,5 +243,13 @@ public class MasterPage extends Hook {
         WebElement element = this.auto_getWebElement(locator);
         this.auto_setTextToInput(element, value, placeholder);
     }
+
+    public String auto_getAttribute(By ElementLocator, String attribute){
+        auto_waitForElementPresence(ElementLocator);
+        WebElement element = auto_getWebElement(ElementLocator);
+        return element.getAttribute(attribute);
+    }
+
+
 
 }

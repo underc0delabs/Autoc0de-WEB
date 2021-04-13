@@ -28,7 +28,7 @@ public class Hook {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.manage().timeouts().pageLoadTimeout(15,TimeUnit.SECONDS);
+        driver.manage().timeouts().pageLoadTimeout(35,TimeUnit.SECONDS);
         driver.get(url);
     }
 
@@ -39,6 +39,7 @@ public class Hook {
             s.attach(screenshot, "image/png", "screenshot");
         }
         System.out.println("Closing browser...");
+        getDriver().close();
         getDriver().quit();
     }
 

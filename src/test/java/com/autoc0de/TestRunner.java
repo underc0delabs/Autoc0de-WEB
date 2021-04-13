@@ -1,4 +1,4 @@
-package tests;
+package com.autoc0de;
 
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
@@ -13,7 +13,7 @@ import org.testng.annotations.Test;
 
         },
         features = {"src/test/resources/features"},
-        glue = {"com.autoc0de.steps","com.autoc0de.hooks"},
+        glue = {"com.autoc0de.steps","com.autoc0de.core.hooks"},
         tags = "@ExampleTag"
 )
 @Test

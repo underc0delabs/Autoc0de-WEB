@@ -44,7 +44,7 @@
         </plugins>
         <resources>
             <resource>
-                <directory>src/test/resources/config</directory>
+                <directory>src/main/resources/config</directory>
                 <filtering>true</filtering>
             </resource>
         </resources>

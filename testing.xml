@@ -3,7 +3,7 @@
 <suite name="Test Suite" verbose="1">
     <test name="Regression Tests">
         <classes>
-            <class name="tests.TestRunner">
+            <class name="com.autoc0de.core.TestRunner">
             </class>
         </classes>
     </test>

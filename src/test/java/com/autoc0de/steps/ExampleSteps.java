@@ -1,11 +1,14 @@
-package com.autoc0de.core.steps;
+package com.autoc0de.steps;
 
-import com.autoc0de.core.pages.ExamplePage;
+import com.autoc0de.pages.ExamplePage;
 import io.cucumber.java.en.*;
 
 public class ExampleSteps {
 
-    //PAGE INSTANCE
+    /*
+    ** PAGE INSTANCE
+     */
+
     ExamplePage examplePage = new ExamplePage();
 
     @Given("the user is on the home screen of Underc0de.org")
