@@ -1,4 +1,4 @@
-package com.autoc0de.utility;
+package com.autoc0de.core.utility;
 
 import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.JavascriptExecutor;

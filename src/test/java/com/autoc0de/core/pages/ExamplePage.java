@@ -1,4 +1,4 @@
-package com.autoc0de.pages;
+package com.autoc0de.core.pages;
 
 
 import org.openqa.selenium.By;

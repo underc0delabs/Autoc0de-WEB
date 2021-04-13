@@ -1,0 +1,4 @@
+com\autoc0de\core\steps\ExampleSteps.class
+tests\MasterPage.class
+com\autoc0de\core\pages\ExamplePage.class
+tests\TestRunner.class

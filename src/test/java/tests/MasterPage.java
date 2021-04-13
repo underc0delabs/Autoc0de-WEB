@@ -1,7 +1,7 @@
 package tests;
 
-import com.autoc0de.hooks.Hook;
-import com.autoc0de.utility.Utils;
+import com.autoc0de.core.hooks.Hook;
+import com.autoc0de.core.utility.Utils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
@@ -11,7 +11,6 @@ import java.awt.*;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.ClipboardOwner;
 import java.awt.datatransfer.StringSelection;
-import java.io.IOException;
 import java.time.Duration;
 import java.util.List;
 

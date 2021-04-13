@@ -1,6 +1,6 @@
-package com.autoc0de.steps;
+package com.autoc0de.core.steps;
 
-import com.autoc0de.pages.ExamplePage;
+import com.autoc0de.core.pages.ExamplePage;
 import io.cucumber.java.en.*;
 
 public class ExampleSteps {

@@ -60,12 +60,14 @@
         <web.url>https://underc0de.org/</web.url>
     </properties>
 
-    <!-- REPOSITORY NECESARY TO DOWNLOAD AN ESPESIFIC DEPENDENCY OF JITPACK -->
+    <!-- REPOSITORY NECESARY TO DOWNLOAD AN ESPESIFIC JAR FILE OF MULESOFT -->
+
     <repositories>
-             <repository>
-                 <id>jitpack.io</id>
-                 <url>https://jitpack.io</url>
-             </repository>
+        <repository>
+            <id>mulesoft-releases</id>
+            <name>MuleSoft Repository</name>
+            <url>https://repository.mulesoft.org/nexus/content/repositories/public/</url>
+        </repository>
     </repositories>
 
     <dependencies>
@@ -112,14 +114,6 @@
             <artifactId>webdrivermanager</artifactId>
             <version>4.3.1</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/com.github.ralfstuckert.pdfbox-layout/pdfbox2-layout -->
-        <dependency>
-            <groupId>com.github.ralfstuckert.pdfbox-layout</groupId>
-            <artifactId>pdfbox2-layout</artifactId>
-            <version>0.8.6</version>
-        </dependency>
-
-
     </dependencies>
 
 </project>
