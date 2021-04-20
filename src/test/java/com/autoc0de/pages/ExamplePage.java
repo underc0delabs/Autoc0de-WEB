@@ -94,6 +94,6 @@ public class ExamplePage extends MasterPage {
     }
 
     public void verifyLogin(){
-        Assert.assertTrue(auto_getElementText(By.xpath(USER_LOGIN_LBL_XPATH)).toLowerCase().contains("autoc0de"), "Error at login - Username or passwor error");
+        Assert.assertTrue(auto_getElementText(By.xpath(USER_LOGIN_LBL_XPATH)).toLowerCase().contains("autoc0de"), "Error at login - Invalid username or passwor");
     }
 }
