@@ -23,16 +23,20 @@ In this README.MD we will see the following topics:
 
 - Add playable code for browser web apps
 - Automate in **BDD** using **Gherkin** language
-- Obtain at the end of each execution, three types of reports **(ExtentReport, ReportePFD, Cucumber Basic Report)**
+- Obtain at the end of each execution, three types of reports **(ExtentReport, ReportPFD, Cucumber Basic Report)**
 - Use the framework's own functions to streamline repetitive tasks
 - Execution **sequential** (Configurable to Parallel)
+
+## New features added:
+
+- Add **Actions** for Github to automate whit pipelines
+- Add more branches whit chrome headless configuration to ejecute pipelines
 
 ## Features to add in the future
 
 - Change the @Tag of the suite in pom.xml (Change in ```TestRunner.class``` for now)
 - Dockerize the framework to run it in a container, using volumes
-- Add **Actions** for Github to automate whit pipelines
-- Add more branches whit chrome headless configuration to ejecute pipelines
+- Add profiles to run in diferents web browsers (**Mozzila, IE, Opera**)
 
 This framework is maked based on several technologies that are detailed in the next point. All open source
 
