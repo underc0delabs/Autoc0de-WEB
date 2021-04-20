@@ -4,6 +4,7 @@ import com.autoc0de.core.utility.PropertiesReader;
 import io.cucumber.java.*;
 import io.cucumber.java.Scenario;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -36,6 +37,8 @@ public class Hook {
         }
         System.out.println("Opening browser...");
         driver = new ChromeDriver(options);
+        Dimension dimension = new Dimension(1920, 1080);
+        driver.manage().window().setSize(dimension);
         driver.manage().window().maximize();
         driver.manage().timeouts().pageLoadTimeout(50,TimeUnit.SECONDS);
         driver.get(url);
