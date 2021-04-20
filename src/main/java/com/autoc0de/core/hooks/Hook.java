@@ -8,6 +8,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
@@ -24,11 +25,19 @@ public class Hook {
     public void setUp() throws IOException {
         PropertiesReader reader = new PropertiesReader("config.properties");
         String url = reader.getProperty("url");
-        System.out.println("Opening browser...");
+        String browserMode = reader.getProperty("browserMode");
         WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
+        ChromeOptions options = new ChromeOptions();
+        if (browserMode.equals("headless")){
+            options.addArguments("headless");
+            options.addArguments("disable-gpu");
+            options.addArguments("no-sandbox");
+            options.addArguments("--lang=es");
+        }
+        System.out.println("Opening browser...");
+        driver = new ChromeDriver(options);
         driver.manage().window().maximize();
-        driver.manage().timeouts().pageLoadTimeout(35,TimeUnit.SECONDS);
+        driver.manage().timeouts().pageLoadTimeout(50,TimeUnit.SECONDS);
         driver.get(url);
     }
 

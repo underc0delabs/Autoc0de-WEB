@@ -60,6 +60,28 @@
         <web.url>https://underc0de.org/</web.url>
     </properties>
 
+    <profiles>
+        <profile>
+            <id>no-headless</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <browser.mode>no-headless</browser.mode>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>headless</id>
+            <activation>
+
+            </activation>
+            <properties>
+                <browser.mode>headless</browser.mode>
+            </properties>
+        </profile>
+    </profiles>
+
     <!-- REPOSITORY NECESARY TO DOWNLOAD AN ESPESIFIC JAR FILE OF MULESOFT -->
 
     <repositories>
