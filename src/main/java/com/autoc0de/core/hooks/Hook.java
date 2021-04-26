@@ -45,7 +45,7 @@ public class Hook {
                 driver = new InternetExplorerDriver(optionsIE);
                 driver.manage().window().setSize(dimension);
                 driver.manage().window().maximize();
-                driver.manage().timeouts().pageLoadTimeout(60,TimeUnit.SECONDS);
+                driver.manage().timeouts().pageLoadTimeout(200,TimeUnit.SECONDS);
                 driver.get(url);
                 break;
             case "mozilla":
@@ -57,7 +57,7 @@ public class Hook {
                 System.out.println("Opening browser...");
                 driver = new FirefoxDriver(optionsF);
                 driver.manage().window().setSize(dimension);
-                driver.manage().timeouts().pageLoadTimeout(60,TimeUnit.SECONDS);
+                driver.manage().timeouts().pageLoadTimeout(200,TimeUnit.SECONDS);
                 driver.get(url);
                 break;
             case "safari":
@@ -76,7 +76,7 @@ public class Hook {
                 driver = new ChromeDriver(optionsGC);
                 driver.manage().window().setSize(dimension);
                 driver.manage().window().maximize();
-                driver.manage().timeouts().pageLoadTimeout(60,TimeUnit.SECONDS);
+                driver.manage().timeouts().pageLoadTimeout(200,TimeUnit.SECONDS);
                 driver.get(url);
                 break;
             default:
