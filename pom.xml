@@ -61,6 +61,9 @@
     </properties>
 
     <profiles>
+
+        <!--** PERFILES PARA ACTIVAR MODO HEADLESS DE NAVEGADORES ** -->
+
         <profile>
             <id>no-headless</id>
             <activation>
@@ -78,6 +81,38 @@
             </activation>
             <properties>
                 <browser.mode>headless</browser.mode>
+            </properties>
+        </profile>
+
+        <!--** PERFILES PARA ACTIVAR UN NAVEGADOR EN CONCRETO ** -->
+        <profile>
+            <id>chrome</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <browser.name>chrome</browser.name>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>iExplorer</id>
+            <properties>
+                <browser.name>iExplorer</browser.name>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>safari</id>
+            <properties>
+                <browser.name>safari</browser.name>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>mozilla</id>
+            <properties>
+                <browser.name>mozilla</browser.name>
             </properties>
         </profile>
     </profiles>

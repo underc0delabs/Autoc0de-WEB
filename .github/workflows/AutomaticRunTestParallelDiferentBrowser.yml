@@ -1,0 +1,119 @@
+name: Test Parallel in diferent web browsers
+
+on:
+  push:
+    branches: [ main ]
+jobs:
+
+  Compile:
+    runs-on: ubuntu-latest
+    name: Compilando Java + maven
+    steps:
+      - name: Step 1 - Checkout main branch from GitHub
+        uses: actions/checkout@v2
+
+      - name: Step 2 - Set up JDK 11.0.7
+        uses: actions/setup-java@v1
+        with:
+          java-version: 11.0.7
+
+      - name: Step 3 - Build Maven
+        run: mvn compile
+
+  TestChrome:
+    runs-on: ubuntu-latest
+    name: Ejecutando tests Google Chrome
+    needs: Compile
+    steps:
+      - name: Step 1 - Checkout of Branch
+        uses: actions/checkout@v2
+
+      - name: Step 2 - Set up JDK 11.0.7
+        uses: actions/setup-java@v1
+        with:
+          java-version: 11.0.7
+
+      - name: Step 3 - Install Google Chrome
+        run: |
+          wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+          sudo apt install ./google-chrome-stable_current_amd64.deb
+
+      - name: Step 4 - Run test in Google Chrome
+        run: mvn test -Pchrome -Pheadless
+
+      - name: Step 5 - Generar Reportes (Artifact)
+        uses: actions/upload-artifact@v2
+        with:
+          name: Reporte-Autoc0de-Web-Chrome
+          path: target/Reports/
+
+  TestFirexof:
+    runs-on: ubuntu-latest
+    name: Ejecutando tests Mozilla FireFox
+    needs: Compile
+    steps:
+      - name: Step 1 - Checkout of Branch
+        uses: actions/checkout@v2
+
+      - name: Step 2 - Set up JDK 11.0.7
+        uses: actions/setup-java@v1
+        with:
+          java-version: 11.0.7
+
+      - name: Step 3 - Install Mozilla Firefox
+        run: |
+          sudo apt-get update
+          sudo apt install firefox
+
+      - name: Step 4 - Run test in Mozila Firefox
+        run: mvn test -Pmozilla -Pheadless
+
+      - name: Step 5 - Generar Reportes (Artifact)
+        uses: actions/upload-artifact@v2
+        with:
+          name: Reporte-Autoc0de-Web-FireFox
+          path: target/Reports/
+
+  TestIE:
+    runs-on: windows-latest
+    name: Ejecutando tests Internet Explorer
+    needs: Compile
+    steps:
+      - name: Step 1 - Checkout of Branch
+        uses: actions/checkout@v2
+
+      - name: Step 2 - Set up JDK 11.0.7
+        uses: actions/setup-java@v1
+        with:
+          java-version: 11.0.7
+
+      - name: Step 3 - Run test in Internet Explorer
+        run: mvn test -PiExplorer
+
+      - name: Step 4 - Generar Reportes (Artifact)
+        uses: actions/upload-artifact@v2
+        with:
+          name: Reporte-Autoc0de-Web-InternetExplorer
+          path: target/Reports/
+
+  # PROXIMAMENTE EN SAFARI
+  #TestMAC:
+  #  runs-on: macos-latest
+  #  name: Ejecutando tests Safari
+  #  needs: Compile
+  #  steps:
+  #    - name: Step 1 - Checkout of Branch
+  #      uses: actions/checkout@v2
+
+  #    - name: Step 2 - Set up JDK 11.0.7
+  #      uses: actions/setup-java@v1
+  #      with:
+  #        java-version: 11.0.7
+
+  #    - name: Step 3 - Run test in safari
+  #      run: mvn test -Psafari
+  #    - name: Step 4 - Generar Reportes (Artifact)
+  #      uses: actions/upload-artifact@v2
+  #      with:
+  #        name: Reporte-Autoc0de-Web-Safari
+  #        path: target/Reports/
