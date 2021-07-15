@@ -1,6 +1,6 @@
-package com.core.utility;
+package com.autoc0de.core.utility;
 
-import com.core.hooks.Hook;
+import com.autoc0de.core.hooks.Hook;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.*;
