@@ -1,16 +1,12 @@
-package com.autoc0de.core.utility;
+package com.core.utility;
 
-import com.autoc0de.core.hooks.Hook;
+import com.core.hooks.Hook;
 import org.openqa.selenium.*;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.FluentWait;
-import org.openqa.selenium.support.ui.Wait;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.*;
 
 import java.awt.*;
-import java.awt.datatransfer.Clipboard;
-import java.awt.datatransfer.ClipboardOwner;
-import java.awt.datatransfer.StringSelection;
+import java.awt.datatransfer.*;
 import java.time.Duration;
 import java.util.List;
 
@@ -34,6 +30,10 @@ public class MasterPage extends Hook {
         return this.wait = new WebDriverWait(driver, 30);
     }
 
+    public void auto_getWaitInMiliseconds(long miliSeconds){
+        sleep(miliSeconds);
+    }
+
     public Wait<WebDriver> auto_getFluentWait() {
         return this.fluentWait;
     }
@@ -55,6 +55,47 @@ public class MasterPage extends Hook {
         element.click();
     }
 
+    public void auto_setClickElementJS(By locator) {
+        WebElement element = auto_getWebElement(locator);
+        auto_setClickElementJS(element);
+    }
+
+    public void auto_setClickElementJS(WebElement element) {
+        JavascriptExecutor jse = (JavascriptExecutor)driver;
+        jse.executeScript("arguments[0].scrollIntoView(true)", element);
+        jse.executeScript("arguments[0].click()", element);
+    }
+
+    public void auto_setClickElementActions(By locator) {
+        WebElement element = auto_getWebElement(locator);
+        auto_setClickElementActions(element);
+    }
+
+    public void auto_setClickElementActions(WebElement element) {
+        Actions action = new Actions(getDriver());
+        action.click(element).perform();
+    }
+
+    public void auto_setClickElementAndHold(By locator) {
+        WebElement element = auto_getWebElement(locator);
+        auto_setClickElementActions(element);
+    }
+
+    public void auto_setClickElementAndHold(WebElement element) {
+        Actions action = new Actions(getDriver());
+        action.clickAndHold(element).perform();
+    }
+
+    public void auto_setClickElementAndCheck(By locator){
+        WebElement element = auto_getWebElement(locator);
+        auto_setClickElementAndCheck(element);
+    }
+
+    public void auto_setClickElementAndCheck(WebElement element){
+        auto_getFluentWait().until(ExpectedConditions.elementToBeClickable(element));
+        element.click();
+    }
+
     public void auto_setTextToInput(By locator, String value) {
         WebElement element = this.auto_getWebElement(locator);
         this.auto_setTextToInput(element, value);
@@ -63,7 +104,7 @@ public class MasterPage extends Hook {
     public void auto_setTextToInput(WebElement element, String value) {
         this.auto_setClickElement(element);
         element.clear();
-        this.auto_setTextToInputWithoutClick(element, value);
+        element.sendKeys(value);
     }
 
     public void auto_setTextToInputWithoutClear(By locator, String value) {
@@ -77,6 +118,15 @@ public class MasterPage extends Hook {
         this.auto_setTextToInputWithoutClick(element, value);
     }
 
+    public void auto_clearInput(By locator){
+        WebElement element = this.auto_getWebElement(locator);
+        this.auto_clearInput(element);
+    }
+
+    public void auto_clearInput(WebElement element){
+        element.clear();
+    }
+
     public void auto_setTextToInputWithoutClear(WebElement element, String value) {
         this.auto_setClickElement(element);
         element.sendKeys(new CharSequence[]{value});
@@ -84,7 +134,16 @@ public class MasterPage extends Hook {
 
     public void auto_setTextToInputWithoutClick(WebElement element, String value) {
         element.clear();
-        element.sendKeys(new CharSequence[]{value});
+        element.sendKeys(value);
+    }
+
+    public void auto_setTextToInputRaw(By locator, String text){
+        WebElement element = auto_getWebElement(locator);
+        auto_setTextToInputRaw(element, text);
+    }
+
+    public void auto_setTextToInputRaw(WebElement element, String text){
+        element.sendKeys(text);
     }
 
     public String auto_getElementText(By locator) {
@@ -196,6 +255,10 @@ public class MasterPage extends Hook {
         this.auto_getFluentWait().until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 
+    public void auto_waitForElementVisibility(WebElement element) {
+        this.auto_getFluentWait().until(ExpectedConditions.visibilityOf(element));
+    }
+
     public void auto_waitForElementInvisibility(By locator) {
         this.auto_getFluentWait().until(ExpectedConditions.invisibilityOfElementLocated(locator));
     }
@@ -250,6 +313,64 @@ public class MasterPage extends Hook {
         return element.getAttribute(attribute);
     }
 
+    public void auto_waitForElementsVisibilities(By locator){
+        auto_getFluentWait().until(ExpectedConditions.visibilityOfAllElementsLocatedBy(locator));
+    }
 
+    public void auto_waitForElementsVisibilities(List<WebElement> elements){
+        auto_getFluentWait().until(ExpectedConditions.visibilityOfAllElements(elements));
+    }
 
+    public void auto_waitElementNotStale(By locator){
+        WebElement element = auto_getWebElement(locator);
+        auto_waitElementNotStale(element);
+    }
+
+    public void auto_waitElementNotStale(WebElement element){
+        auto_getFluentWait().until(ExpectedConditions.stalenessOf(element));
+    }
+
+    public void auto_HoverElement(By locator){
+        WebElement element = auto_getWebElement(locator);
+        auto_HoverElement(element);
+    }
+
+    public void auto_HoverElement(WebElement element){
+        Actions actions = new Actions(getDriver());
+        actions.moveToElement(element).perform();
+    }
+
+    public WebElement auto_waitElementClickable(By locator){
+        WebElement element = auto_getWebElement(locator);
+        return auto_waitElementClickable(element);
+    }
+
+    public WebElement auto_waitElementClickable(WebElement element){
+        return auto_getFluentWait().until(ExpectedConditions.elementToBeClickable(element));
+    }
+
+    public void auto_scrollToElement(By locator){
+        WebElement element = auto_getWebElement(locator);
+        auto_scrollToElement(element);
+    }
+
+    public void auto_scrollToElement(WebElement element){
+        Actions action = new Actions(getDriver());
+        action.moveToElement(element).perform();
+
+    }
+
+    public void auto_sendKeyPressedToElement(By locator, Keys key){
+        WebElement element = auto_getWebElement(locator);
+        auto_sendKeyPressedToElement(element,key);
+    }
+
+    public void auto_sendKeyPressedToElement(WebElement element, Keys key){
+        element.sendKeys(key);
+    }
+
+    public void auto_waitForLoadPageComplete(){
+        JavascriptExecutor javascriptExecutor = (JavascriptExecutor)getDriver();
+        auto_getFluentWait().until(driver ->javascriptExecutor.executeScript("return document.readyState").equals("complete"));
+    }
 }
