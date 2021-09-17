@@ -119,11 +119,10 @@
 
     <!-- REPOSITORY NECESARY TO DOWNLOAD AN ESPESIFIC JAR FILE OF MULESOFT -->
 
-    <repositories>
+     <repositories>
         <repository>
-            <id>mulesoft-releases</id>
-            <name>MuleSoft Repository</name>
-            <url>https://repository.mulesoft.org/nexus/content/repositories/public/</url>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
         </repository>
     </repositories>
 
@@ -170,6 +169,12 @@
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
             <version>4.3.1</version>
+        </dependency>
+         <!-- https://mvnrepository.com/artifact/com.github.ralfstuckert.pdfbox-layout/pdfbox2-layout -->
+        <dependency>
+            <groupId>com.github.ralfstuckert.pdfbox-layout</groupId>
+            <artifactId>pdfbox2-layout</artifactId>
+            <version>0.8.6</version>
         </dependency>
     </dependencies>
 
