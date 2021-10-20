@@ -17,10 +17,10 @@ public class ExamplePage extends MasterPage {
      */
 
     private final String HOME_TITLE_XPATH = "//*[@id=\"top\"]/section[1]/div/div/div/div/h2";
-    private final String INDEXOF_TAB_XPATH = "//*[@id=\"materialize-menu\"]/ul/li[5]/a";
-    private final String DE_0_A_HACKING_BUTTON_XPATH = "//*[@id=\"materialize-menu\"]/ul/li[5]/ul/li/a";
-    private final String LIST_CARDS_ARROW_XPATH = "//*[contains(@class,'fa-arrow-right')]";
-    private final String LIST_CARDS_REVEAL_XPATH = "//*[@class=\"card-reveal\"]";
+    private final String COMUNIDAD_TAB_XPATH = "//*[@id=\"materialize-menu\"]/ul/li[4]/a";
+    private final String BENEFICIOS_BUTTON_XPATH = "//a[.='BENEFICIOS']";
+    private final String LIST_CARDS_ARROW_XPATH = "//*[@class=\"fa fa-ellipsis-v right\"]";
+    private final String LIST_CARDS_REVEAL_XPATH = "//div[@class='portfolio portfolio-with-title col-3 gutter mtb-50 shuffle']/div[1]//div[@class='card-reveal']";
     private final String FORO_BUTTON_XPATH = "//*[@id=\"materialize-menu\"]/ul/li[2]/a";
     private final String INGRESAR_BUTTONS_XPATH = "//*[@id=\"button_login\"]/a";
     private final String INGRESAR_LOGIN_BUTTONS_XPATH = "//*[@id=\"frmLogin\"]/div/div[2]/p[1]/input";
@@ -36,14 +36,14 @@ public class ExamplePage extends MasterPage {
         Assert.assertTrue(auto_isElementVisible(By.xpath(HOME_TITLE_XPATH)));
     }
 
-    public void clickOnINDEXOFTab(){
-        auto_setClickElement(By.xpath(INDEXOF_TAB_XPATH));
+    public void clickOnCOMUNIDADTab(){
+        auto_setClickElement(By.xpath(COMUNIDAD_TAB_XPATH));
     }
 
     public void clickButtonSwitch(String button){
         switch (button.toLowerCase()) {
-            case "de 0 a hacking":
-                clickOnDE0AHACKINGButton();
+            case "beneficios":
+                clickOnBENEFICIOSButton();
                 break;
             case "foro":
                 clickOnForoButton();
@@ -56,8 +56,8 @@ public class ExamplePage extends MasterPage {
         }
     }
 
-    public void clickOnDE0AHACKINGButton(){
-        auto_setClickElement(By.xpath(DE_0_A_HACKING_BUTTON_XPATH));
+    public void clickOnBENEFICIOSButton(){
+        auto_setClickElement(By.xpath(BENEFICIOS_BUTTON_XPATH));
     }
 
     public void clickOnForoButton(){
