@@ -18,7 +18,7 @@ public class ExampleSteps {
 
     @When("^the user hovers the mouse over the tab (.*)$")
     public void theUserHoversTheMouseOverTheTab(String tab) {
-        examplePage.clickOnINDEXOFTab();
+        examplePage.clickOnCOMUNIDADTab();
     }
 
     @And("^the user click the (.*) button$")
