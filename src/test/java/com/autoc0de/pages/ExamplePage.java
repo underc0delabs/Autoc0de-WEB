@@ -17,10 +17,6 @@ public class ExamplePage extends MasterPage {
      */
 
     private final String HOME_TITLE_XPATH = "//*[@id=\"top\"]/section[1]/div/div/div/div/h2";
-    private final String INDEXOF_TAB_XPATH = "//*[@id=\"materialize-menu\"]/ul/li[5]/a";
-    private final String DE_0_A_HACKING_BUTTON_XPATH = "//*[@id=\"materialize-menu\"]/ul/li[5]/ul/li/a";
-    private final String LIST_CARDS_ARROW_XPATH = "//*[contains(@class,'fa-arrow-right')]";
-    private final String LIST_CARDS_REVEAL_XPATH = "//*[@class=\"card-reveal\"]";
     private final String FORO_BUTTON_XPATH = "//*[@id=\"materialize-menu\"]/ul/li[2]/a";
     private final String INGRESAR_BUTTONS_XPATH = "//*[@id=\"button_login\"]/a";
     private final String INGRESAR_LOGIN_BUTTONS_XPATH = "//*[@id=\"frmLogin\"]/div/div[2]/p[1]/input";
@@ -36,15 +32,8 @@ public class ExamplePage extends MasterPage {
         Assert.assertTrue(auto_isElementVisible(By.xpath(HOME_TITLE_XPATH)));
     }
 
-    public void clickOnINDEXOFTab(){
-        auto_setClickElement(By.xpath(INDEXOF_TAB_XPATH));
-    }
-
     public void clickButtonSwitch(String button){
         switch (button.toLowerCase()) {
-            case "de 0 a hacking":
-                clickOnDE0AHACKINGButton();
-                break;
             case "foro":
                 clickOnForoButton();
                 break;
@@ -54,10 +43,6 @@ public class ExamplePage extends MasterPage {
             default:
                 Assert.assertEquals(button,"No button matched", "Invalid button options");
         }
-    }
-
-    public void clickOnDE0AHACKINGButton(){
-        auto_setClickElement(By.xpath(DE_0_A_HACKING_BUTTON_XPATH));
     }
 
     public void clickOnForoButton(){
@@ -70,21 +55,6 @@ public class ExamplePage extends MasterPage {
         }else{
             auto_setClickElement(By.xpath(INGRESAR_BUTTONS_XPATH));
         }
-    }
-
-    public void clickAllArrows(){
-        List<WebElement> listArrows = auto_getWebElements(By.xpath(LIST_CARDS_ARROW_XPATH));
-        for (WebElement item: listArrows) {
-            item.click();
-        }
-    }
-
-    public void verifyAllCardsInformation(){
-        List<WebElement> listCards = auto_getWebElements(By.xpath(LIST_CARDS_REVEAL_XPATH));
-        for (WebElement item: listCards) {
-            softAssert.assertTrue(auto_isElementVisible(item), "The item isn't visible");
-        }
-        softAssert.assertAll();
     }
 
     public void completeLoginData(String user, String pass){

@@ -16,24 +16,9 @@ public class ExampleSteps {
         examplePage.verifyHomeTitle();
     }
 
-    @When("^the user hovers the mouse over the tab (.*)$")
-    public void theUserHoversTheMouseOverTheTab(String tab) {
-        examplePage.clickOnINDEXOFTab();
-    }
-
     @And("^the user click the (.*) button$")
     public void theUserClickTheButton(String button) {
         examplePage.clickButtonSwitch(button);
-    }
-
-    @And("the user click all the rigth arrows")
-    public void theUserClickAllTheRigthArrows() {
-        examplePage.clickAllArrows();
-    }
-
-    @Then("the user verifies all the text in the cards")
-    public void theUserVerifiesAllTheTextInTheCards() {
-        examplePage.verifyAllCardsInformation();
     }
 
     @And("^the user complete te user information. Usuario: (.*) Contraseña: (.*)$")
