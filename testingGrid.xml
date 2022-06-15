@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Tests in parallel" parallel="tests" verbose="1" configfailurepolicy="continue" data-provider-thread-count="18" thread-count="1">
+<test name="Parallel test" annotations="JDK" preserve-order="true">
+    <!-- Specify the Run Suite classes which needed to be run in parallel -->
+    <classes>
+        <class name="com.autoc0de.TestRunnerGrid"/>
+    </classes>
+</test>
+</suite>

@@ -1,8 +1,7 @@
 package com.autoc0de;
 
-import io.cucumber.testng.AbstractTestNGCucumberTests;
-import io.cucumber.testng.CucumberOptions;
-import org.testng.annotations.Test;
+import io.cucumber.testng.*;
+import org.testng.annotations.DataProvider;
 
 
 @CucumberOptions(
@@ -13,14 +12,19 @@ import org.testng.annotations.Test;
 
         },
         features = {"src/test/resources/features"},
-        glue = {"com.autoc0de.steps","com.core.hooks"},
-        tags =  "@ExampleTag"
-
+        glue = {"com.autoc0de.steps", "com.core.hooks"},
+        tags = "@ExampleTag"
 )
-@Test
-public class TestRunner extends AbstractTestNGCucumberTests {
 
+public class TestRunnerGrid extends AbstractTestNGCucumberTests {
+
+    @Override
+    @DataProvider(parallel = true)
+    public Object[][] scenarios() {
+        return super.scenarios();
+    }
 }
+
 
 
 

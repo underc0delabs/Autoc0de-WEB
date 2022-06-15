@@ -1,4 +1,4 @@
-# Autoc0de: Automation Framework - Web
+# Autoc0de 2.0: Automation Framework - Web
 ## _Open source tests automation framework for Web aplications_
 
 <p align="center">
@@ -23,20 +23,16 @@ In this README.MD we will see the following topics:
 
 - Add playable code for browser web apps
 - Automate in **BDD** using **Gherkin** language
-- Obtain at the end of each execution, three types of reports **(ExtentReport, ReportPFD, Cucumber Basic Report)**
+- Obtain at the end of each execution, two types of reports **(ExtentReport, and Cucumber Basic Report)**
 - Use the framework's own functions to streamline repetitive tasks
-- Execution **sequential** (Configurable to Parallel)
-
-## New features added:
-
-- Add **Actions** for Github to automate whit pipelines
-- Add more branches whit chrome headless configuration to ejecute pipelines
+- Execution **sequential** and **sequential** Ready Now! 
+- More easy manage all the locators with the new Locator Builder!
+- Driver factory is implemented in this new version!
 
 ## Features to add in the future
 
 - Change the @Tag of the suite in pom.xml (Change in ```TestRunner.class``` for now)
 - Dockerize the framework to run it in a container, using volumes
-- Add profiles to run in diferents web browsers (**Mozzila, IE, Opera**)
 
 This framework is maked based on several technologies that are detailed in the next point. All open source
 
@@ -63,14 +59,15 @@ This Framework includes the following technologies:
 
 The technologies mentioned above are integrated into the framework through MAVEN in the **pom.xml** file. The versions are specified below:
 
-| Technology | Maven version |Link Maven repo|
-| ------ | ------ |------|
-| Selenium-java | 3.141.59|https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java|
-| TestNG maven | 7.4.0 |https://mvnrepository.com/artifact/org.testng/testng|
-| Cucumber-java | 6.10.2 |https://mvnrepository.com/artifact/io.cucumber/cucumber-java|
-| Cucumber-testng | 6.10.2 |https://mvnrepository.com/artifact/io.cucumber/cucumber-testng|
-| Cucumber-core | 6.10.2 |https://mvnrepository.com/artifact/io.cucumber/cucumber-core|
-| Extent Report Adapter | 2.7.0 |https://mvnrepository.com/artifact/com.aventstack/extentreports|
+| Technology            | Maven version |Link Maven repo|
+|-----------------------|---------------|------|
+| Selenium-java         | 3.141.59      |https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java|
+| TestNG maven          | 7.4.0         |https://mvnrepository.com/artifact/org.testng/testng|
+| Cucumber-java         | 6.11.2        |https://mvnrepository.com/artifact/io.cucumber/cucumber-java|
+| Cucumber-testng       | 6.11.2        |https://mvnrepository.com/artifact/io.cucumber/cucumber-testng|
+| Cucumber-core         | 6.11.2        |https://mvnrepository.com/artifact/io.cucumber/cucumber-core|
+| Extent Report Adapter | 2.9.0         |https://mvnrepository.com/artifact/com.aventstack/extentreports|
+| Web Driver Manager    | 5.0.3         |https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager|
 
 **Remember to keep these versions of Maven up to date as much as possible. If the project ever stops working, it could be because one of the versions found here has been deprecated / moved. However, it must be remembered that at the date this project was uploaded, all versions are the most current**
 
@@ -84,37 +81,52 @@ This Framework uses the automation pattern [Page Object] and is structured as fo
 └── src
     ├── main
     │   ├── java      
-    │   │   └── com.autoc0de.core
+    │   │   └── com.core
+    │   │       ├── driver
+    │   │       │   ├── browsers
+    │   │       │   │   ├── ChromeDriverManager.class ---> Poperties for Google Chrome Browser
+    │   │       │   │   ├── FirefoxDriverManager.class --> Poperties for Mozilla Firefox Browser
+    │   │       │   │   ├── RemoteChromeDriverManager.class
+    │   │       │   │   └── RemoteFirefoxDriverManager.class
+    │   │       │   ├── DriverFactory.class -------------> This class have the potential to create Drivers
+    │   │       │   └── DriverManager.class -------------> This class have the administration of the diferent Drivers
     │   │       ├── hooks  ------------------------------> Folder where our Hooks are stored            
     │   │       │   └── Hook.class ----------------------> Framework hook
-    │   │       └── utility -----------------------------> Folder with useful functions
-    │   │           ├── MasterPage.class ----------------> MasterPage with generic functions
-    │   │           ├── PropertiesReader.class ----------> Reader and manager of properties files
-    │   │           └── Utils.class ---------------------> File with useful functions
+    │   │       ├── utility -----------------------------> Folder with useful functions
+    │   │       │   ├── MasterPage.class ----------------> MasterPage with generic functions adapt to work with Locator Builder
+    │   │       │   ├── PropertiesFileReader.class ------> Reader and manager of properties files
+    │   │       │   └── Utils.class ---------------------> File with useful functions
+    │   │       ├── LocatorBuilder.class
+    │   │       └── LocatorTypes.class
     │   └── resources
     │       └── config
-    │           └── config.properties -------------------> File with properties of POM
+    │           ├── config.properties -------------------> File with properties of POM
+    │           └── logback.xml
     └── test
     │   ├── java   
     │   │   └── com.autoc0de
+    │   │       ├── locators
+    │   │       │   └── ExampleLocators.class
     │   │       ├── pages -------------------------------> Folder where our Pages are stored
     │   │       │   └── ExamplePage.class ---------------> Example of a page
     │   │       ├── steps -------------------------------> Folder where our Pages are stored
     │   │       │   └── ExampleSteps.class --------------> Example of a step definition
-    │   │       └── TestRunner.class---------------------> Runner of TestNG
+    │   │       ├── TestRunner.class --------------------> Runner of TestNG for secuential tests
+    │   │       └── TestRunnerGrid.class ----------------> Runner of TestNG for parallel tests
     │   └── resources           
     │       ├── features --------------------------------> Folder where out features files are stored
     │       │   └── Example.features --------------------> Example of a feature file
     │       ├── extent.properties -----------------------> Report properties
-    │       ├── extent-config.xml -----------------------> Report config
-    │       └── pdf-config1.yaml ------------------------> Report PDF properties
+    │       └── extent-config.xml -----------------------> Report config
     ├── pom.xml -----------------------------------------> POM File of this framework
-    └── testing.xml -------------------------------------> TestRunner config
+    ├── testing.xml -------------------------------------> TestRunner config for secuencial executions
+    └── testingGrid.xml ---------------------------------> TestRunner config for parallel executions
 ```
 
-This project is based on 3 levels:
+This project is based on 4 levels:
 * **Page objects** (They are all our pages that in this case, are in the folder ```pages```)
 * **Step definitions** (They are all the definitions of our steps written in [Gherkin], in this case, in the folder ```steps```)
+* **Locatorss** (Here we find all the locators defined with the format of the Locator Builder, in this case, in the folder ```locators```)
 * **Features** (These are all our .features files written in [Gherkin], in this case, in the folder ```features```)
 
 
@@ -122,13 +134,13 @@ This project is based on 3 levels:
 ## Tools needed to run it locally and Steps to run the Framework
 
 In the ```Technological Stack``` section, we will find links that will take us to the websites to download all the tools we need. However, when using maven, we only need to install:
-* Maven 3.6.3
+* Maven 3.6.3 minimal (The latest work fine too)
 * Java
 * JDK
 * Google Chrome
 
 1. Install Maven 3.6.3
-2. Install Java and JDK (Greater than 8)
+2. Install Java and JDK (Greater than 8, we recomend 15)
 3. Expose Maven and Java in environment variables
 4. Inside the root path of the newly cloned project, open the console and execute the following maven command: ```mvn install -DskipTests```. This will download all the necessary dependencies found in the ```pom.xml``` file
 
@@ -172,8 +184,7 @@ If we want to see the report, prior to the execution of the project, we have to 
     ├── cucumber-reports -------------------> In this folder we found a basic cucumber report
     ├── generated-test-sources
     └── Reports ----------------------------> in this folder we found 2 type of reports
-    │   ├── Autoc0de-Web-HTML.html ------> Greater report of Extent Report
-    │   └── Autoc0de-Web-PDF ------------> PDF Report
+    │   └── index.html ------> Greater report of Extent Report
     └── test-clases
 ```
 
@@ -220,11 +231,11 @@ If you want to use this Framework to automate your own web application (of cours
 
 
 1. Open the ```pom.xml``` file that is in the root of the project, then, look for it property called ```<web.url> https://underc0de.org/ </web.url>``` and replace that address with that of your web application
-   
+
 <p align="center">
   <img src="img/pom.png"/>
 </p>
-   
+
 
 2. Look for the file called ```TestRunner.class``` (See architecture) and locate the ```@Tag``` located in the ```'tags'``` option. Replace ```@ExampleTag``` with the desired tag
 
@@ -235,7 +246,7 @@ If you want to use this Framework to automate your own web application (of cours
 3. Now, add your features files in the folder ```features```, yout step definition in the folder ```steps```, and yout constants and functions in the folder ```pages```
 
 4. Done!, now run on a terminal the comand: ```mvn clean test``` (Or click on ```TestRunner.class``` ---> ```debug```) and your project was run!
- 
+
 # Enjoy!
 
 ## Architect, creator and developer of the framework
@@ -251,17 +262,17 @@ If you want to use this Framework to automate your own web application (of cours
 ```sd    
 ```
 
-   
-   
-   [Maven]: <https://maven.apache.org/download.cgi>
-   [Java]: <https://www.oracle.com/java/technologies/javase-jdk15-downloads.html>
-   [Selenium]: <https://www.selenium.dev/documentation/en/>
-   [Appium]: <https://appium.io/>
-   [Cucumber]: <https://cucumber.io/>
-   [Gherkin]: <https://cucumber.io/docs/gherkin/reference/>
-   [Extent Report]: <https://www.extentreports.com/> 
-   [TestNG]: <https://testng.org/doc/documentation-main.html>
-   [Android Studio AVD]: <https://developer.android.com/studio>
-   [IntelliJ]: <https://www.jetbrains.com/idea/>
-   [Page Object]: <https://www.tutorialselenium.com/2019/02/05/page-object-model-selenium-webdriver/>
-   [Google Chrome]: <https://www.google.com/intl/es-419/chrome/> 
+
+
+[Maven]: <https://maven.apache.org/download.cgi>
+[Java]: <https://www.oracle.com/java/technologies/javase-jdk15-downloads.html>
+[Selenium]: <https://www.selenium.dev/documentation/en/>
+[Appium]: <https://appium.io/>
+[Cucumber]: <https://cucumber.io/>
+[Gherkin]: <https://cucumber.io/docs/gherkin/reference/>
+[Extent Report]: <https://www.extentreports.com/>
+[TestNG]: <https://testng.org/doc/documentation-main.html>
+[Android Studio AVD]: <https://developer.android.com/studio>
+[IntelliJ]: <https://www.jetbrains.com/idea/>
+[Page Object]: <https://www.tutorialselenium.com/2019/02/05/page-object-model-selenium-webdriver/>
+[Google Chrome]: <https://www.google.com/intl/es-419/chrome/> 
