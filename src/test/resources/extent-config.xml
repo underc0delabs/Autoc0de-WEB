@@ -17,13 +17,12 @@
 
         <protocol>https</protocol>
         <!-- title of the document -->
-        <documentTitle>Autoc0de - Web</documentTitle>
+        <documentTitle>Autoc0de WEB Report</documentTitle>
         <!-- report name - displayed at top-nav -->
 
-        <reportName>Autoc0de Web Reporte</reportName>
-        <!-- location of charts in the tests view -->
-        <assignDevice>Pixel 8</assignDevice>
-        <assignAuthor>Autoc0de</assignAuthor>
+        <reportName>Autoc0de WEB Repor</reportName>
+        <!-- location of charts in the com.core.tests view -->
+        <assignAuthor>Joel Vitelli</assignAuthor>
         <!-- top, bottom -->
         <enableTimeline>true</enableTimeline>
         <nodeAsToggles>false</nodeAsToggles>

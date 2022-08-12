@@ -1,20 +1,12 @@
-Feature: The user explore the Underc0de web and foro
+Feature: Login in underc0de forum
 
   @ExampleTag
-  Scenario: User explore the Underc0de web
+  Scenario Outline: User login in the Underc0de forum
     Given the user is on the home screen of Underc0de.org
-    When the user hovers the mouse over the tab COMUNIDAD
-    And the user click the BENEFICIOS button
-    And the user click all the rigth arrows
-    Then the user verifies all the text in the cards
-
-  @ExampleTag
-  Scenario Outline: User login in the foro of Underc0de
-    Given the user is on the home screen of Underc0de.org
-    When the user click the FORO button
-    And the user click the INGRESAR button
-    And the user complete te user information. Usuario: <user> Contraseña: <pass>
-    And the user click the INGRESAR button
+    When the user click the "FORO" button
+    And the user click the "INGRESAR" button
+    And the user complete te user information. Usuario: "<user>" Contraseña: "<pass>"
+    And the user click the "INGRESAR" button of the forum
     Then the user verifies that they are logged in.
     Examples:
       | user         | pass          |

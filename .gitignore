@@ -46,11 +46,18 @@ com_crashlytics_export_strings.xml
 crashlytics.properties
 crashlytics-build.properties
 fabric.properties
-Autoc0de-Web.iml
+automation.COR.iml
 target
+**/.DS_Store
 
 ### Intellij Patch ###
 # Comment Reason: https://github.com/joeblau/gitignore.io/issues/186#issuecomment-215987721
 
 # *.iml
 # modules.xml
+
+### AWS Integration
+.aws/.env
+
+### Git Large File Storage
+.gitattributes
