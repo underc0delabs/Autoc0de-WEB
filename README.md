@@ -62,12 +62,16 @@ The technologies mentioned above are integrated into the framework through MAVEN
 | Technology            | Maven version |Link Maven repo|
 |-----------------------|---------------|------|
 | Selenium-java         | 3.141.59      |https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java|
-| TestNG maven          | 7.4.0         |https://mvnrepository.com/artifact/org.testng/testng|
+| TestNG maven          | 7.6.1         |https://mvnrepository.com/artifact/org.testng/testng|
 | Cucumber-java         | 6.11.2        |https://mvnrepository.com/artifact/io.cucumber/cucumber-java|
 | Cucumber-testng       | 6.11.2        |https://mvnrepository.com/artifact/io.cucumber/cucumber-testng|
 | Cucumber-core         | 6.11.2        |https://mvnrepository.com/artifact/io.cucumber/cucumber-core|
-| Extent Report Adapter | 2.9.0         |https://mvnrepository.com/artifact/com.aventstack/extentreports|
-| Web Driver Manager    | 5.0.3         |https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager|
+| Extent Report Adapter | 2.14.0        |https://mvnrepository.com/artifact/com.aventstack/extentreports|
+| Web Driver Manager    | 5.3.1         |https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager|
+| Logback Core          | 1.4.4         |https://mvnrepository.com/artifact/ch.qos.logback/logback-core|
+| Logback Classic       | 1.4.4         |https://mvnrepository.com/artifact/ch.qos.logback/logback-classic|
+| Slf4j-Api             | 2.0.3         |https://mvnrepository.com/artifact/org.slf4j/slf4j-api|
+| Lombok                | 1.18.24       |https://mvnrepository.com/artifact/org.projectlombok/lombok|
 
 **Remember to keep these versions of Maven up to date as much as possible. If the project ever stops working, it could be because one of the versions found here has been deprecated / moved. However, it must be remembered that at the date this project was uploaded, all versions are the most current**
 
