@@ -48,6 +48,7 @@ public class ExamplePage extends MasterPage {
     }
 
     public void verifyLogin(){
+        auto_waitForElementVisibility(USER_LOGIN_LBL_XPATH);
         Assert.assertTrue(auto_getElementText(USER_LOGIN_LBL_XPATH).toLowerCase().contains("autoc0de"), "Error at login - Invalid username or passwor");
     }
 

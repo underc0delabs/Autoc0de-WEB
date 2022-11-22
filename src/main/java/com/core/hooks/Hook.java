@@ -11,15 +11,11 @@ import org.openqa.selenium.*;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
-;
 import org.slf4j.LoggerFactory;
 
-import static java.lang.Thread.sleep;
 
 
 public class Hook {
-
-    private static WebDriver driver;
 
     public Hook(){
     }
@@ -36,7 +32,6 @@ public class Hook {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-
     }
 
     @After
