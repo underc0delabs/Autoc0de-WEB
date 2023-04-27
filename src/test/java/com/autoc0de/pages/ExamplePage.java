@@ -41,6 +41,10 @@ public class ExamplePage extends MasterPage {
         auto_setClickElement(INGRESAR_LOGIN_BUTTONS_XPATH);
     }
 
+    public void clickIngresarButtonForumModal() {
+        auto_setClickElement(INGRESAR_LOGIN_MODAL_BUTTONS_XPATH);
+    }
+
     public void completeLoginData(String user, String pass){
         auto_waitForElementPresence(USUARIO_INPUT_XPATH);
         auto_setTextToInput(USUARIO_INPUT_XPATH, user);
@@ -48,7 +52,8 @@ public class ExamplePage extends MasterPage {
     }
 
     public void verifyLogin(){
-        auto_waitForElementVisibility(USER_LOGIN_LBL_XPATH);
+        auto_waitForElementVisibility(USER_LOGIN_IMG_XPATH);
+        auto_setClickElement(USER_LOGIN_IMG_XPATH);
         Assert.assertTrue(auto_getElementText(USER_LOGIN_LBL_XPATH).toLowerCase().contains("autoc0de"), "Error at login - Invalid username or passwor");
     }
 

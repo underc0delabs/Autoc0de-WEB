@@ -26,6 +26,11 @@ public class ExampleSteps {
         examplePage.clickIngresarButtonForum();
     }
 
+    @And("^the user click the \"INGRESAR\" button of the forum modal$")
+    public void theUserClickTheINGRESARButtonOfTheForumModal() {
+        examplePage.clickIngresarButtonForumModal();
+    }
+
     @And("^the user complete te user information. Usuario: \"(.*)\" Contraseña: \"(.*)\"$")
     public void theUserCompleteTeUserInformationUsuarioUserContraseñaPass(String user, String pass) {
         examplePage.completeLoginData(user, pass);

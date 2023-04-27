@@ -5,8 +5,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <!-- General Information of the Framework -->
-    <name>COR - Automation Framework for COR Web</name>
-    <description>COR web application automation framework</description>
+    <name>Autoc0de - Automation Framework</name>
+    <description>Web application automation framework</description>
     <inceptionYear>2021</inceptionYear>
 
     <!-- Developers of the automation project -->
@@ -16,7 +16,7 @@
         <developer>
             <id>jvitelli</id>
             <name>Joel Vitelli</name>
-            <email>joel@projectcor.com</email>
+            <email>jvitelli92@gmail.com</email>
             <timezone>Latam/Argentina</timezone>
         </developer>
     </developers>
