@@ -263,7 +263,8 @@ If you want to use this Framework to automate your own web application (of cours
 ```
 
 ## Contributing Developers
-```sd    
+```sd
+   * Danilo Vezzoni (Dinno)
 ```
 
 
