@@ -1,11 +1,11 @@
+[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/underc0delabs/Autoc0de-WEB/blob/main/LICENCE)
+
 # Autoc0de 2.0: Automation Framework - Web
 ## _Open source tests automation framework for Web aplications_
 
 <p align="center">
   <img src="img/autoc0de-2-0.png"/>
 </p>
-
-[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://github.com/Joel-Vitelli/Autoc0de-Mobile)
 
 # Indice
 
